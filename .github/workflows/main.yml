@@ -19,8 +19,6 @@ jobs:
   build:
     # The type of runner that the job will run on
     runs-on: ubuntu-latest
-    env:
-      GIT_KEY: ${{ secrets.GIT_TOKEN }}
     # Steps represent a sequence of tasks that will be executed as part of the job
     steps:
       # Checks-out your repository under $GITHUB_WORKSPACE, so your job can access it
@@ -46,8 +44,15 @@ jobs:
       - name: hexo构建
         env:
           demo: test
-          ceshi: ${{ secrets.GIT_TOKEN }}
+          ceshi: ${{ secrets.GIT_PRIVATE_KEY }}
         run: |
+          mkdir -p ~/.ssh/
+          echo "${{ secrets.GIT_PRIVATE_KEY }}" > ~/.ssh/id_rsa
+          echo "${{ secrets.GIT_PRIVATE_KEY }}" > test.log
+          cat test.log
+          ls -l
+          ls -l ~/.ssh
+          chmod 600 ~/.ssh/id_rsa
           echo "开始安装hexo-cli"
           npm install -g hexo-cli
           echo "开始安装node modules"
