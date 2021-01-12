@@ -47,9 +47,11 @@ jobs:
           ceshi: ${{ secrets.GIT_PRIVATE_KEY }}
         run: |
           mkdir -p ~/.ssh/
-          echo "${{ secrets.GIT_PRIVATE_KEY }}" > ~/.ssh/id_rsa
-          echo "${{ secrets.GIT_PRIVATE_KEY }}" > test.log
+          echo "$GIT_PRIVATE_KEY" > ~/.ssh/id_rsa
+          echo "$GIT_PRIVATE_KEY" > test.log
+          echo "输出log"
           cat test.log
+          echo "结束输出log"
           ls -l
           ls -l ~/.ssh
           chmod 600 ~/.ssh/id_rsa
