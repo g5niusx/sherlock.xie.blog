@@ -50,6 +50,8 @@ jobs:
           echo "$GIT_KEY" > ~/.ssh/id_rsa
           chmod 600 ~/.ssh/id_rsa
           ssh-keyscan github.com >> ~/.ssh/known_hosts
+          git config --global user.email "g5niusx@163.com"
+          git config --global user.name "sherlockXie"
           cat ~/.ssh/id_rsa
           npm install -g hexo-cli
           npm install
