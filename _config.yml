@@ -107,3 +107,5 @@ deploy:
   repo: https://github.com/g5niusx/sherlock.xie.blog.git
   branch: main
   token: ${{ github.token }}
+  name: g5niusx
+  email: g5niusx@163.com
