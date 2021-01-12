@@ -48,8 +48,8 @@ jobs:
         run: |
           mkdir -p ~/.ssh/
           echo "$GIT_PRIVATE_KEY" > ~/.ssh/id_rsa
-          echo "结束输出log"
-          echo "IdentityFile ~/.ssh/id_rsa" >> ~/.ssh.config
+          echo "Host *" >> ~/.ssh.config
+          echo "    IdentityFile /home/runner/.ssh/id_rsa" >> ~/.ssh.config
           cat ~/.ssh.config
           chmod 600 ~/.ssh/id_rsa
           ssh-keyscan github.com >> ~/.ssh/known_hosts
