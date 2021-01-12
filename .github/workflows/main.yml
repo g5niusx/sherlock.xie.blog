@@ -28,7 +28,7 @@ jobs:
 
       - name: Setup Node.js environment
         uses: actions/setup-node@v2.1.4
-        run: ls
+        run: echo "hello"
         with:
           # Set always-auth in npmrc
           always-auth: false
