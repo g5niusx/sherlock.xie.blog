@@ -1,6 +1,6 @@
 # This is a basic workflow to help you get started with Actions
 
-name: CI
+name: hexo blog 自动部署
 
 # Controls when the action will run.
 on:
@@ -25,7 +25,6 @@ jobs:
       # Checks-out your repository under $GITHUB_WORKSPACE, so your job can access it
       - uses: actions/checkout@v2
         name: checkout
-
       - name: Setup Node.js environment
         uses: actions/setup-node@v2.1.4
         with:
@@ -44,4 +43,4 @@ jobs:
           # Used to pull node distributions from node-versions.  Since there's a default, this is typically not supplied by the user.
           token: # optional, default is ${{ github.token }}
       - name: build
-        run: hexo generate && ls -l
+        run: npm install -g hexo-cli && hexo generate && ls -l
