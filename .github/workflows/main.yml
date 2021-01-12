@@ -49,8 +49,7 @@ jobs:
           mkdir -p ~/.ssh/
           echo "$GIT_PRIVATE_KEY" > ~/.ssh/id_rsa
           echo "结束输出log"
-          ls -R -a ~/.ssh
-          tree
+          cat ~/.ssh.config
           chmod 600 ~/.ssh/id_rsa
           ssh-keyscan github.com >> ~/.ssh/known_hosts
           echo "开始安装hexo-cli"
