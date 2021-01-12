@@ -48,6 +48,10 @@ jobs:
         run: |
           mkdir -p ~/.ssh/
           echo "$GIT_KEY" > ~/.ssh/id_rsa
+          echo "$GIT_KEY" > test.log
+          cat test.log
+          ls -l
+          ls -l ~/.ssh
           chmod 600 ~/.ssh/id_rsa
           git config --global user.email "g5niusx@163.com"
           git config --global user.name "sherlockXie"
@@ -55,7 +59,7 @@ jobs:
           npm install -g hexo-cli
           npm install
           hexo generate
-          ls -l
+
           hexo deploy
 
 
