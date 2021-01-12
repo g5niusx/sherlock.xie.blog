@@ -43,4 +43,4 @@ jobs:
           # Used to pull node distributions from node-versions.  Since there's a default, this is typically not supplied by the user.
           token: # optional, default is ${{ github.token }}
       - name: build
-        run: npm install -g hexo-cli && hexo generate && ls -l
+        run: npm install hexo && hexo generate && ls -l
