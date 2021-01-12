@@ -42,6 +42,10 @@ jobs:
           scope: # optional
           # Used to pull node distributions from node-versions.  Since there's a default, this is typically not supplied by the user.
           token: # optional, default is ${{ github.token }}
+      - name: test
+        env:
+          GIT_KEY: ${{ secrets.GIT_KEY }}
+        run: echo $GIT_KEY
       - name: hexo构建
         run: npm install -g hexo-cli && npm install && hexo generate && ls -l && hexo deploy
 
