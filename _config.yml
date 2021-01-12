@@ -106,3 +106,4 @@ deploy:
   type: 'git'
   repo: https://github.com/g5niusx/sherlock.xie.blog.git
   branch: main
+  token: ${{ github.token }}
