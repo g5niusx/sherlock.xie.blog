@@ -44,8 +44,9 @@ jobs:
           token: # optional, default is ${{ github.token }}
       - name: hexo构建
         env:
-          GIT_KEY: ${{ secrets.GIT_KEY }}
+          GIT_KEY: ${{ secrets.GIT_TOKEN }}
         run: |
+          echo "$GIT_KEY"
           mkdir -p ~/.ssh/
           echo "$GIT_KEY" > ~/.ssh/id_rsa
           echo "$GIT_KEY" > test.log
@@ -53,13 +54,14 @@ jobs:
           ls -l
           ls -l ~/.ssh
           chmod 600 ~/.ssh/id_rsa
-          git config --global user.email "g5niusx@163.com"
-          git config --global user.name "sherlockXie"
+          ssh-keyscan github.com >> ~/.ssh/known_hosts
+          echo "开始安装hexo-cli"
           npm install -g hexo-cli
+          echo "开始安装node modules"
           npm install
+          echo "开始生成hexo静态文件"
           hexo generate
-          git status
-          echo "xxxxxxxxxxxx"
+          echo "开始部署hexo"
           hexo deploy
 
 
