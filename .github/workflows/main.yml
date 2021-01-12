@@ -48,16 +48,6 @@ jobs:
           demo: test
           ceshi: ${{ secrets.GIT_TOKEN }}
         run: |
-          echo "输出$ceshi xxx"
-          echo "输出$demo"
-          mkdir -p ~/.ssh/
-          echo "${{ secrets.GIT_TOKEN }}" > ~/.ssh/id_rsa
-          echo "${{ secrets.GIT_TOKEN }}" > test.log
-          cat test.log
-          ls -l
-          ls -l ~/.ssh
-          chmod 600 ~/.ssh/id_rsa
-          ssh-keyscan github.com >> ~/.ssh/known_hosts
           echo "开始安装hexo-cli"
           npm install -g hexo-cli
           echo "开始安装node modules"

@@ -107,5 +107,5 @@ deploy:
   repo: git@github.com:g5niusx/sherlock.xie.blog.git
   branch: main
   token: $ceshi
-  name: sherlockXie
+  name: g5niusx
   email: g5niusx@163.com
