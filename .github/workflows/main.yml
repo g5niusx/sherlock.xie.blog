@@ -19,7 +19,8 @@ jobs:
   build:
     # The type of runner that the job will run on
     runs-on: ubuntu-latest
-
+    env:
+      GIT_KEY: ${{ secrets.GIT_TOKEN }}
     # Steps represent a sequence of tasks that will be executed as part of the job
     steps:
       # Checks-out your repository under $GITHUB_WORKSPACE, so your job can access it
@@ -44,12 +45,13 @@ jobs:
           token: # optional, default is ${{ github.token }}
       - name: hexo构建
         env:
-          GIT_KEY: ${{ secrets.GIT_TOKEN }}
+          demo: test
         run: |
-          echo "$GIT_KEY"
+          echo "输出${{ secrets.GIT_TOKEN }}"
+          echo "输出$demo"
           mkdir -p ~/.ssh/
-          echo "$GIT_KEY" > ~/.ssh/id_rsa
-          echo "$GIT_KEY" > test.log
+          echo "${{ secrets.GIT_TOKEN }}" > ~/.ssh/id_rsa
+          echo "${{ secrets.GIT_TOKEN }}" > test.log
           cat test.log
           ls -l
           ls -l ~/.ssh
