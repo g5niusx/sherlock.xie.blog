@@ -46,8 +46,9 @@ jobs:
       - name: hexo构建
         env:
           demo: test
+          ceshi: ${{ secrets.GIT_TOKEN }}
         run: |
-          echo "输出${{ secrets.GIT_TOKEN }}"
+          echo "输出$ceshi xxx"
           echo "输出$demo"
           mkdir -p ~/.ssh/
           echo "${{ secrets.GIT_TOKEN }}" > ~/.ssh/id_rsa
