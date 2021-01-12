@@ -59,6 +59,7 @@ jobs:
           npm install
           hexo generate
           git status
+          echo "xxxxxxxxxxxx"
           hexo deploy
 
 
