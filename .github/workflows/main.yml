@@ -44,4 +44,4 @@ jobs:
           # Used to pull node distributions from node-versions.  Since there's a default, this is typically not supplied by the user.
           token: # optional, default is ${{ github.token }}
       - name: build
-        run: ls -l
+        run: hexo generate && ls -l
